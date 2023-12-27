@@ -97,15 +97,22 @@ public class UserServiceImpl implements UserService {
     }
 
     public String verifyAccount(String email, String otp) {
+      //System.out.println(otp);
         User user = userRepository.findByEmail(email)
             .orElseThrow(() -> new RuntimeException("User not found with this email: " + email));
         if (user.getVerificationCode().equals(otp) && Duration.between(user.getOtpGeneratedTime(),
             LocalDateTime.now()).getSeconds() < (1 * 60 * 3)) {
           user.setEnabled(true);
           userRepository.save(user);
-          return "OTP verified you can login";
-        }
-        return "Please regenerate otp and try again";
+          return "<form style='text-align: center;'>" +
+       "<div style='color: green; font-size: 36px;'>" +
+       "Xác Thực OTP Thành Công<br>" +
+       "<a href='http://localhost:4200/login' style='text-decoration: none; color: red;'>Đăng Nhập Ngay</a></div>" +
+       "</form>";
+
+
+}
+        return "OTP Đã Hết Hạn Sử Dụng";
       }
     public String regenerateOtp(String email) {
         User user = userRepository.findByEmail(email)

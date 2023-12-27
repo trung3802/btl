@@ -42,7 +42,7 @@ public class UserController {
 
         return ResponseEntity.ok(user);
     }
-    @PutMapping("/verify-account")
+    @GetMapping("/verify-account")
     public ResponseEntity<String> verifyAccount(@RequestParam String email,
         @RequestParam String otp) {
       return new ResponseEntity<>(userService.verifyAccount(email, otp), HttpStatus.OK);
