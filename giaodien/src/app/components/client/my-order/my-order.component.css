@@ -1,0 +1,12 @@
+.custom-link {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none; /* Bỏ gạch chân dưới văn bản */
+    transition: color 0.3s ease;
+  }
+  
+  .custom-link:hover {
+    color: darkred;
+  }
+  

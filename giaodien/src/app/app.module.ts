@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
@@ -49,6 +50,8 @@ import { SearchComponent } from './components/client/search/search.component';
 import { LoginPageComponent } from './components/client/login-page/login-page.component';
 import { ChartsComponent } from './components/admin/charts/charts.component';
 import { EmailVerificationComponent } from './components/client/email-verification/email-verification.component';
+import { ChitietComponent } from './components/admin/chitiet/chitiet.component';
+import { OrderchitietComponent } from './components/client/orderchitiet/orderchitiet.component';
 
 
 @NgModule({
@@ -75,6 +78,8 @@ import { EmailVerificationComponent } from './components/client/email-verificati
     LoginPageComponent,
     ChartsComponent,
     EmailVerificationComponent,
+    ChitietComponent,
+    OrderchitietComponent,
 
   ],
   imports: [

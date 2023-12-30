@@ -54,12 +54,12 @@ export class ProductService {
     return this.http.get(PRODUCT_API + id,httpOptions);
   }
 
-  createProduct(name:string,description: string,price: string,quantity:number,categoryId: number,imageIds: Array<string>):Observable<any>{
-    return this.http.post(PRODUCT_API +'create',{name,description,price,quantity,categoryId,imageIds},httpOptions);
+  createProduct(name:string,description: string,price: string,quantity:number,categoryId: number,mota: string,imageIds: Array<string>):Observable<any>{
+    return this.http.post(PRODUCT_API +'create',{name,description,price,quantity,categoryId,mota,imageIds},httpOptions);
   }
 
-  updateProduct(id: number,name:string,description: string,price: string,quantity:number,categoryId: number,imageIds: Array<string>):Observable<any>{
-    return this.http.put(PRODUCT_API + 'update/'+id,{name,description,price,quantity,categoryId,imageIds},httpOptions);
+  updateProduct(id: number,name:string,description: string,price: string,quantity:number,categoryId: number,mota: string,imageIds: Array<string>):Observable<any>{
+    return this.http.put(PRODUCT_API + 'update/'+id,{name,description,price,quantity,categoryId,mota,imageIds},httpOptions);
   }
 
   deleteProduct(id:number):Observable<any>{

@@ -12,11 +12,18 @@ export class RoleGuardService implements CanActivate {
   roles: any[] = [];
 
   constructor(private storageService:StorageService,private router: Router) { }
-
+// kiểm tra quuyen ng dùng
   canActivate(route: ActivatedRouteSnapshot):boolean{
     const expectedRole = route.data['expectedRole'];
     this.isloggedIn = this.storageService.isLoggedIn();
     this.roles = this.storageService.getUser().roles
+  //   console.log('Role Guard - Is Logged In:', this.isloggedIn);
+  // console.log('Role Guard - User Roles:', this.roles);
+  //   if (this.isloggedIn && this.roles.includes('ROLE_ADMIN')) {
+  //     // Nếu có quyền admin, chuyển hướng trực tiếp đến trang admin
+  //     this.router.navigate(['/admin']);
+  //     return false; // Ngăn chặn hiển thị trang hiện tại (ví dụ: /)
+  //   }
     if( this.isloggedIn == false || !this.roles.includes(expectedRole)){
       this.router.navigate(['login']);
       return false;

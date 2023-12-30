@@ -12,7 +12,7 @@ export class AuthGuardService implements CanActivate {
   constructor(private storageService: StorageService,private router: Router) { }
 
 
-
+// kiểm tra đăng nhập
   canActivate():boolean{
     this.isLoggedIn = this.storageService.isLoggedIn();
     if(this.isLoggedIn == false){

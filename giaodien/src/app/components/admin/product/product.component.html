@@ -64,18 +64,18 @@
     <ng-template pTemplate="content">
         <!-- <img [src]="'assets/showcase/images/demo/product/' + product.image" [alt]="product.image" class="product-image" *ngIf="product.image"> -->
         <div class="field">
-            <label for="name">Name</label>
+            <label for="name">Tên</label>
             <input type="text" pInputText id="name" [(ngModel)]="productForm.name" required autofocus />
             <!-- <small class="p-error" *ngIf="submitted && !product.name">Name is required.</small> -->
         </div>
         <div class="field">
-            <label for="description">Description</label>
+            <label for="description">Giới Thiệu</label>
             <textarea id="description" pInputTextarea [(ngModel)]="productForm.description" required rows="3" cols="20"></textarea>
         </div>
 
 
         <div class="field">
-            <label class="mb-3">Category</label>
+            <label class="mb-3">Danh Mục</label>
             <div class="formgrid grid">
                 <div class="field-radiobutton col-6" *ngFor="let category of listCategory">
                     <p-radioButton name="category" value="{{category.id}}" [(ngModel)]="productForm.categoryId" [inputId]="category.id" class="mr-2"></p-radioButton>
@@ -83,15 +83,19 @@
                 </div>
             </div>
         </div>
+        <div class="field">
+            <label for="mota">Mô Tả</label>
+            <textarea id="mota" pInputTextarea [(ngModel)]="productForm.mota" required rows="3" cols="20"></textarea>
+        </div>
 
 
         <div class="formgrid grid">
             <div class="field col">
-                <label for="price">Price</label>
+                <label for="price">Giá</label>
                 <p-inputNumber id="price" [(ngModel)]="productForm.price" mode="currency" currency="VND" locale="en-US"></p-inputNumber>
             </div>
             <div class="field col">
-                <label for="quantity">Quantity</label>
+                <label for="quantity">Số Lượng</label>
                 <p-inputNumber id="quantity" [(ngModel)]="productForm.quantity"></p-inputNumber>
             </div>
         </div>

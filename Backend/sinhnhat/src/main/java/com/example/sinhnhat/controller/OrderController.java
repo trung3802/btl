@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sinhnhat.entity.Order;
+import com.example.sinhnhat.entity.OrderDetail;
 import com.example.sinhnhat.model.request.CreateOrderRequest;
 import com.example.sinhnhat.model.response.MessageResponse;
+import com.example.sinhnhat.service.OderdetailService;
 import com.example.sinhnhat.service.OrderService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,6 +28,9 @@ import io.swagger.v3.oas.annotations.Operation;
 public class OrderController {
     @Autowired
     private OrderService orderService;
+    
+    @Autowired
+    private OderdetailService oderdetailService;
 
 
     @GetMapping("/")
@@ -52,4 +57,11 @@ public class OrderController {
 
         return ResponseEntity.ok(new MessageResponse("Order Placed Successfully!"));
     }
+    
+//    @GetMapping("/chitiet/{id}")
+//    @Operation(summary="Lấy ra danh sách đơn hàng bằng id của ddơn hàng")
+//    public ResponseEntity<List<OrderDetail>> getOrderDetailsByOrderId(@PathVariable long id){
+//        List<OrderDetail> list = oderdetailService.getOrderDetailsByOrderId(id);
+//        return ResponseEntity.ok(list);
+//    }
 }

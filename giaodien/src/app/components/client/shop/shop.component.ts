@@ -40,6 +40,7 @@ export class ShopComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.id = this.route.snapshot.params['id'];
     this.getListProductByCategory();
     this.getListCategoryEnabled();

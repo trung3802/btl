@@ -33,6 +33,8 @@ public class Product {
 
     @Column(name = "description",columnDefinition = "TEXT")
     private String description;
+    @Column(name = "mota",columnDefinition = "TEXT")
+    private String mota;
 
     private long price;
 

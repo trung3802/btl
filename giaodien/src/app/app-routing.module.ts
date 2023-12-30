@@ -22,18 +22,24 @@ import { AuthGuardService } from './_service/auth-guard.service';
 import { RoleGuardService } from './_service/role-guard.service';
 import { ChartsComponent } from './components/admin/charts/charts.component';
 import { EmailVerificationComponent } from './components/client/email-verification/email-verification.component';
-
+import { ChitietComponent } from './components/admin/chitiet/chitiet.component';
+import { OrderchitietComponent } from './components/client/orderchitiet/orderchitiet.component';
+import { AccountComponent } from './components/admin/account/account.component';
 
 const routes: Routes = [
   {
-    path: 'admin',component:DashboardComponent,canActivate: [RoleGuardService],data: {expectedRole: "ROLE_ADMIN"},
+    path: 'admin',component:DashboardComponent,
+    canActivate: [RoleGuardService],
+    data: {expectedRole: "ROLE_ADMIN"},
     children:[
       {path:"category",component: CategoryComponent},
       {path:'product',component:ProductComponent},
       {path:'order',component:OrderComponent},
       {path:'blog',component:BlogComponent},
       {path:'tag',component:TagComponent},
-      {path:'charts',component:ChartsComponent}
+      {path:'charts',component:ChartsComponent},
+      {path:'chitiet/:id',component:ChitietComponent},
+      {path:'thongtin',component:AccountComponent},
     ]
   },
   {
@@ -49,6 +55,7 @@ const routes: Routes = [
       {path:'email-verification',component:EmailVerificationComponent},
       {path:'user',component:UserDetailComponent,canActivate: [AuthGuardService]},
       {path:'my-order',component:MyOrderComponent,canActivate: [AuthGuardService]},
+      {path:'orderchitiet/:id',component:OrderchitietComponent,canActivate: [AuthGuardService]},
       {path:'search/:keyword',component:SearchComponent}
     ]
   },
