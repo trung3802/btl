@@ -59,6 +59,7 @@ export class UserDetailComponent implements OnInit {
     const{firstname,lastname,email,country,state,address,phone} = this.updateForm;
     this.userService.updateProfile(this.username,firstname,lastname,email,country,state,address,phone).subscribe({
       next: res =>{
+        alert("Cập nhật thông tin thành công")
         this.getUser();
         
       },error: err=>{

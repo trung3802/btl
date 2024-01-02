@@ -1,5 +1,10 @@
 <p-toast>
 </p-toast>
+<div id="scrollToTopBtn" (click)="scrollToTop()">
+    <img src="assets/image/top.png">
+
+</div>
+
 
 <section>
     <div class="container">
@@ -59,7 +64,7 @@
                             </li>
                             <li>
                                 <a href="javascript:void(0)" routerLink="/product/{{product.id}}">
-                                    <fa-icon [icon]="retweet"></fa-icon>
+                                    <fa-icon [icon]="eye"></fa-icon>
                                 </a>
                             </li>
                             <li>
@@ -70,7 +75,7 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="javascript:void(0)">{{product.name}}</a></h6>
+                        <h6><b><a href="javascript:void(0)">{{product.name}}</a></b></h6>
                         <!-- Hiển thị giá sản phẩm với định dạng tiền tệ VND -->
                         <h5 class="red-text">{{ product.price | currency:'VND'}}</h5>
 
@@ -124,7 +129,8 @@
                             </li>
                             <li>
                                 <a href="javascript:void(0)" routerLink="/product/{{product.id}}">
-                                    <fa-icon [icon]="retweet"></fa-icon>
+                                    <fa-icon [icon]="eye"></fa-icon>
+                                    
                                 </a>
                             </li>
                             <li>
@@ -135,7 +141,7 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="javascript:void(0)">{{product.name}}</a></h6>
+                        <h6><b><a href="javascript:void(0)">{{product.name}}</a></b></h6>
                         <h5 class="red-text">{{ product.price | currency:'VND'}}</h5>
 
 

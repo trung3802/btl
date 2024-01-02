@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ProductService } from 'src/app/_service/product.service';
 import { OrderService } from 'src/app/_service/order.service';
 import { BlogService } from 'src/app/_service/blog.service';
-
+import { faCalculator, faDollarSign, faComment, faClipboard } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-charts',
   templateUrl: './charts.component.html',
@@ -13,6 +13,10 @@ export class ChartsComponent {
   totalRevenue: number = 0;
   totalOrder: number=0;
   totalblog: number=0;
+  cacli=faCalculator;
+  clip=faClipboard;
+  dolo=faDollarSign;
+  cmt=faComment;
   constructor(private productService: ProductService,private orderService: OrderService,private blogService: BlogService) {}
 
   ngOnInit(): void {

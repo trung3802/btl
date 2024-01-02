@@ -40,18 +40,14 @@ export class CheckoutComponent implements OnInit {
     phone: null,
     note: null
   }
-
   constructor(private userService: UserService,
     public cartService: CartService,
     private orderService:OrderService,
     private storageService: StorageService,
     private router: Router
     ){
-
   }
   ngOnInit(): void {
-
-
     console.log(this.username);
     // Lấy tên người dùng từ dịch vụ lưu trữ
     this.username = this.storageService.getUser().username;
@@ -69,22 +65,17 @@ export class CheckoutComponent implements OnInit {
         this.orderForm.email = userDetails.email;
         this.orderForm.phone = userDetails.phone;
         // Gọi service để đặt hàng
-
       },
       (error) => {
         console.error('Lỗi khi lấy thông tin người dùng:', error);
       }
     );
-
     // Lấy danh sách sản phẩm từ giỏ hàng
     this.cartService.getItems();
   }
-
   showDepartmentClick(){
     this.showDepartment = !this.showDepartment;
   }
-
-
   placeOrder(){
     this.cartService.items.forEach(res =>{
       let orderDetail : OrderDetail = new OrderDetail;

@@ -3,11 +3,11 @@
 <div class="card">
     <p-toolbar styleClass="mb-4 gap-2">
         <ng-template pTemplate="left">
-            <button pButton pRipple label="Thêm sản phẩm" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+            <button pButton pRipple label="Thêm sản phẩm" icon="pi pi-plus" class="p-button-warning mr-2" (click)="openNew()"></button>
         </ng-template>
     </p-toolbar>
 
-    <p-table #dt [value]="listProduct" [rows]="6" [paginator]="true" [globalFilterFields]="['name','category.name']" [tableStyle]="{'min-width': '75rem'}" [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    <p-table #dt [value]="listProduct" [rows]="5" [paginator]="true" [globalFilterFields]="['name','category.name']" [tableStyle]="{'min-width': '75rem'}" [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
             <div class="flex align-items-center justify-content-between">
@@ -47,8 +47,8 @@
                 <td>{{product.price | currency:'VND'}}</td>
                 <td>{{product.category.name}}</td>
                 <td>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="openUpdate(product)"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="onDelete(product.id,product.name)"></button>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary mr-2" (click)="openUpdate(product)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="onDelete(product.id,product.name)"></button>
                 </td>
             </tr>
         </ng-template>

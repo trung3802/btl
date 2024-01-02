@@ -65,30 +65,27 @@
                     <p-tabPanel header="Giới Thiệu">
                         <div class="tab-pane">
                             <div class="product__details__tab__desc">
-                                <h6>{{product.description}}</h6>
+                                <!-- <h6>{{product.description}}</h6> -->
+                                <h6 *ngFor="let line of product.description.split('\n')">{{ line }}</h6>
                                 
                             </div>
                         </div>
                     </p-tabPanel>
-                    <p-tabPanel header="Mô tả">
-
-
+                    <p-tabPanel header="Mô tả">                        
                         <div class="tab-pane">
                             <div class="product__details__tab__desc">
-                                <h6>{{product.mota}}</h6>
+                                <h6 *ngFor="let line of product.mota.split('\n')">{{ line }}</h6>
                             </div>
                         </div>
+                        
 
                     </p-tabPanel>
                     <p-tabPanel header="Đánh Giá (1)">
 
                         <div class="tab-pane">
                             <div class="product__details__tab__desc">
-                                <h6>Products Infomation</h6>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere incidunt natus eaque architecto ipsam nihil reprehenderit. Obcaecati fugit vel rem? E st ut in laboriosam veniam eaque vitae nesciunt reiciendis sit.</p>
-                                <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna
-                                    dictum porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                    Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                                <h6>Đang update</h6>
+                                
                             </div>
                         </div>
 
@@ -122,7 +119,7 @@
                             </li>
                             <li>
                                 <a href="javascript:void(0)" routerLink="/product/{{product.id}}">
-                                    <fa-icon [icon]="retweet"></fa-icon>
+                                    <fa-icon [icon]="eye"></fa-icon>
                                 </a>
                             </li>
                             <li>

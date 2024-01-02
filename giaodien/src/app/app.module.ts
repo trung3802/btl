@@ -52,6 +52,7 @@ import { ChartsComponent } from './components/admin/charts/charts.component';
 import { EmailVerificationComponent } from './components/client/email-verification/email-verification.component';
 import { ChitietComponent } from './components/admin/chitiet/chitiet.component';
 import { OrderchitietComponent } from './components/client/orderchitiet/orderchitiet.component';
+import { ContactComponent } from './components/client/contact/contact.component';
 
 
 @NgModule({
@@ -80,6 +81,7 @@ import { OrderchitietComponent } from './components/client/orderchitiet/orderchi
     EmailVerificationComponent,
     ChitietComponent,
     OrderchitietComponent,
+    ContactComponent,
 
   ],
   imports: [

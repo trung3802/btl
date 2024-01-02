@@ -37,24 +37,53 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login():void{
-    const {username,password} = this.loginForm;
-    console.log(this.loginForm);
-    this.authService.login(username,password).subscribe({
-      next: res =>{
+  // login():void{
+  //   const {username,password} = this.loginForm;
+  //   if (!username || !password) {
+  //     this.showWarn("Vui lòng nhập tên người dùng và mật khẩu."); 
+  //     return;
+  //   }
+  //   console.log(this.loginForm);
+  //   this.authService.login(username,password).subscribe({
+  //     next: res =>{
+  //       this.storageService.saveUser(res);
+  //       this.isLoggedIn = true;
+  //       this.isLoginFailed = false;
+  //       this.roles = this.storageService.getUser().roles;
+  //       this.showSuccess("Đăng nhập thành công!!");
+  //       this.router.navigate(['/admin']);
+  //     },error: err =>{
+  //       console.log(err);
+  //       this.isLoggedIn = false;
+  //       this.isLoginFailed = true;
+  //     }
+  //   })
+  // }
+  login(): void {
+    const { username, password } = this.loginForm;
+    if (!username || !password) {
+      this.showWarn("Vui lòng nhập tên người dùng và mật khẩu.");
+      return;
+    }
+    
+    this.authService.login(username, password).subscribe({
+      next: res => {
         this.storageService.saveUser(res);
         this.isLoggedIn = true;
         this.isLoginFailed = false;
         this.roles = this.storageService.getUser().roles;
         this.showSuccess("Đăng nhập thành công!!");
-        this.router.navigate(['/']);
-      },error: err =>{
+        this.router.navigate(['/admin/charts']);
+      },
+      error: err => {
         console.log(err);
         this.isLoggedIn = false;
         this.isLoginFailed = true;
+        this.showError("Đăng nhập thất bại. Vui lòng kiểm tra tên đăng nhập và mật khẩu.");
       }
-    })
+    });
   }
+  
 
   register():void{
     const {username,email,password} = this.registerForm;

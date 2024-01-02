@@ -1,7 +1,7 @@
 <p-card class="card">
     <p-toolbar styleClass="mb-4 gap-2">
         <ng-template pTemplate="left">
-            <button pButton pRipple label="Thêm Blog" icon="pi pi-plus" class="p-button-success mr-2" (click)="showNew()" ></button>
+            <button pButton pRipple label="Thêm Blog" icon="pi pi-plus" class="p-button-warning mr-2" (click)="showNew()" ></button>
         </ng-template>
     </p-toolbar>
 
@@ -40,8 +40,8 @@
                 <td>{{blog.description}}</td>
                 <td>{{blog.content}}</td>
                 <td>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="showUpdate(blog)" ></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"  (click)="showDelete(blog.id,blog.title)"></button>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary mr-2" (click)="showUpdate(blog)" ></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"  (click)="showDelete(blog.id,blog.title)"></button>
                 </td>
             </tr>
         </ng-template>

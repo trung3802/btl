@@ -32,6 +32,15 @@ export class ChitietComponent implements OnInit {
       }
     });
   }
-  
+  //tổng tiền
+  calculateTotalSum(): number {
+    let totalSum = 0;
 
+    // Iterate through the listOrderCT array and sum up the 'subTotal' values
+    for (const order of this.listOrderCT) {
+      totalSum += order.subTotal || 0; // Make sure subTotal is a valid number
+    }
+
+    return totalSum;
+  }
 }

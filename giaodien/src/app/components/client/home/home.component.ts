@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faBars, faHeart, faPhone, faRetweet, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHeart, faPhone, faRetweet, faShoppingBag ,faEye} from '@fortawesome/free-solid-svg-icons';
 import { MessageService } from 'primeng/api';
 import { CartService } from 'src/app/_service/cart.service';
 import { ProductService } from 'src/app/_service/product.service';
@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   heart = faHeart;
   bag = faShoppingBag;
   retweet = faRetweet;
+  eye=faEye;
 
   listProductNewest : any;
   listProductPrice: any;
@@ -125,4 +126,18 @@ showError(text: string) {
 showWarn(text: string) {
   this.messageService.add({severity:'warn', summary: 'Cảnh Báo', detail: text});
 }
+
+
+  scrollToTop() {
+    const scrollDuration = 1000; // Thời gian để cuộn lên (1 giây)
+    const scrollStep = -window.scrollY / (scrollDuration / 15);
+
+    const scrollInterval = setInterval(function() {
+        if (window.scrollY != 0) {
+            window.scrollBy(0, scrollStep);
+        } else {
+            clearInterval(scrollInterval);
+        }
+    }, 15);
+  }
 }

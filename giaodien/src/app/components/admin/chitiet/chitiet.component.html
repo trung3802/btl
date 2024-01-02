@@ -24,23 +24,32 @@
                 <th pSortableColumn="address">Số Lượng
                     <p-sortIcon field="address"></p-sortIcon>
                 </th>
-                <th pSortableColumn="phone">Tổng Tiền
+                <th pSortableColumn="phone">Tổng
                     <p-sortIcon field="phone"></p-sortIcon>
                 </th>
                 
                 <th></th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-orderct>
+        <ng-template pTemplate="body" let-orderct let-rowIndex="rowIndex">
+            <!-- Regular order rows -->
             <tr>
                 <td style="width: 4rem">
                     <p-tableCheckbox [value]="orderct"></p-tableCheckbox>
                 </td>
-                <td>{{orderct.name}}</td>
-                <td>{{orderct.price| currency:'VND'}}</td>
-                <td>{{orderct.quantity}}</td>                
-                <td>{{orderct.subTotal | currency:'VND'}}</td>
+                <td>{{ orderct.name }}</td>
+                <td>{{ orderct.price | currency:'VND' }}</td>
+                <td>{{ orderct.quantity }}</td>
+                <td>{{ orderct.subTotal | currency:'VND' }}</td>
             </tr>
+            
+            
+            <ng-container *ngIf="rowIndex === listOrderCT.length - 1">
+                <tr>
+                    <td colspan="4" style="text-align: right; font-weight: bold;">Tổng Tiền:</td>
+                    <td style="font-weight: bold;">{{ calculateTotalSum() | currency:'VND' }}</td>
+                </tr>
+            </ng-container>
         </ng-template>
     </p-table>
 </div>

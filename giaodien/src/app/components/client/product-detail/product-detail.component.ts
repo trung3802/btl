@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faBars, faHeart, faPhone, faRetweet, faShoppingBag, faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHeart, faPhone, faRetweet, faShoppingBag, faStar, faStarHalf,faEye } from '@fortawesome/free-solid-svg-icons';
 import { MessageService } from 'primeng/api';
 import { CartService } from 'src/app/_service/cart.service';
 import { ProductService } from 'src/app/_service/product.service';
@@ -21,6 +21,7 @@ export class ProductDetailComponent implements OnInit {
   star = faStar;
   star_half = faStarHalf;
   retweet = faRetweet;
+  eye=faEye;
 
   showDepartment = false;
 

@@ -25,7 +25,7 @@ import { EmailVerificationComponent } from './components/client/email-verificati
 import { ChitietComponent } from './components/admin/chitiet/chitiet.component';
 import { OrderchitietComponent } from './components/client/orderchitiet/orderchitiet.component';
 import { AccountComponent } from './components/admin/account/account.component';
-
+import { ContactComponent } from './components/client/contact/contact.component';
 const routes: Routes = [
   {
     path: 'admin',component:DashboardComponent,
@@ -56,7 +56,8 @@ const routes: Routes = [
       {path:'user',component:UserDetailComponent,canActivate: [AuthGuardService]},
       {path:'my-order',component:MyOrderComponent,canActivate: [AuthGuardService]},
       {path:'orderchitiet/:id',component:OrderchitietComponent,canActivate: [AuthGuardService]},
-      {path:'search/:keyword',component:SearchComponent}
+      {path:'search/:keyword',component:SearchComponent},
+      {path:'contact',component:ContactComponent}
     ]
   },
   {path:'login',component:LoginPageComponent}

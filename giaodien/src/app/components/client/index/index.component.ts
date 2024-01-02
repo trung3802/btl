@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
 import { Router } from '@angular/router';
-import {faBars, faHeart, faRightFromBracket, faUser} from '@fortawesome/free-solid-svg-icons'
+import {faBars, faHeart, faRightFromBracket, faUser,faAnglesUp} from '@fortawesome/free-solid-svg-icons'
+import { faFacebook ,faInstagram,faYahoo,faYoutube,faTelegram} from '@fortawesome/free-brands-svg-icons';
+
 import {faShoppingBag} from '@fortawesome/free-solid-svg-icons'
 import {faPhone} from '@fortawesome/free-solid-svg-icons'
 import { MessageService } from 'primeng/api';
@@ -28,7 +30,11 @@ export class IndexComponent implements OnInit {
   userIcon = faUser;
   logoutIcon = faRightFromBracket;
   bars = faBars;
-
+  fb=faFacebook;
+  youtube=faYoutube;
+  tele=faTelegram;
+  ins=faInstagram;
+top=faAnglesUp;
   showDepartment = false;
 
 
@@ -106,6 +112,10 @@ export class IndexComponent implements OnInit {
 
   login():void{
     const {username,password} = this.loginForm;
+  if (!username || !password) {
+    this.showWarn("Vui lòng nhập tên người dùng và mật khẩu."); 
+    return;
+  }
     console.log(this.loginForm);
     this.authService.login(username,password).subscribe({
       next: res =>{
@@ -120,13 +130,24 @@ export class IndexComponent implements OnInit {
         console.log(err);
         this.isLoggedIn = false;
         this.isLoginFailed = true;
-        this.showError(err.message);
+        // this.showError("Sai mật khẩu Or Chưa kích hoạt tài khoản");
+        if (err.status === 400) {
+          this.showError("Tài khoản hoặc mật khẩu không đúng.");
+        } else if (err.status === 401) {
+          this.showError("Tài khoản chưa kích hoạt.");
+        } else {
+          this.showError("Đã xảy ra lỗi. Vui lòng thử lại sau.");
+        }
       }
     })
   }
 
   register():void{
     const {username,email,password} = this.registerForm;
+    if (!username || !password ||!email) {
+      this.showWarn("Vui lòng nhập đủ thông tin"); 
+      return;
+    }
     console.log(this.registerForm);
     this.authService.register(username,email,password).subscribe({
       next: res =>{
